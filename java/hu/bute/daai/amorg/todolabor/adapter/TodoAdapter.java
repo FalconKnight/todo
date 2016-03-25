@@ -38,13 +38,6 @@ public class TodoAdapter extends CursorRecyclerViewAdapter<TodoAdapter.ViewHolde
     public void onBindViewHolder(ViewHolder holder,final Cursor cursor) {
         final Todo todo = TodoDbLoader.getTodoByCursor(cursor);
 
-        holder.delete.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                TodoDbLoader.deleteTodo(cursor.getPosition());
-            }
-        });
-
         holder.mTodo = todo;
         holder.title.setText(todo.getTitle());
         holder.dueDate.setText(todo.getDueDate());
@@ -101,7 +94,6 @@ public class TodoAdapter extends CursorRecyclerViewAdapter<TodoAdapter.ViewHolde
             title = (TextView) view.findViewById(R.id.textViewTitle);
             dueDate = (TextView) view.findViewById(R.id.textViewDueDate);
             priority = (ImageView) view.findViewById(R.id.imageViewPriority);
-            delete= (Button)view.findViewById(R.id.delete);
         }
 
     }
